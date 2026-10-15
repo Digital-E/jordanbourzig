@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jordan Bourzig | Plant-Centric Chef & Nutritional Therapist</title>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #CEDCFF;
+    --fg: #7C7531;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--fg);
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    padding: 0 3vw 30px;
+    max-width: 1700px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    position: relative;
+    transform: translateY(var(--parallax-name, 0px));
+    will-change: transform;
+  }
+
+  .name-line {
+    margin: 0 0 0 -0.045em;
+    font-size: clamp(56px, 25vw, 430px);
+    line-height: 0.88;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  .name-line:first-child {
+    margin-bottom: clamp(40px, 8vw, 136px);
+  }
+
+  .line-wrap {
+    position: relative;
+  }
+
+  .line-wrap .name-line {
+    position: relative;
+    z-index: 1;
+  }
+
+  .portrait-wrap {
+    position: absolute;
+    left: 53%;
+    top: 0;
+    transform: translate(-50%, -35%) translateY(var(--parallax-img, 0px));
+    width: clamp(140px, 19vw, 320px);
+    aspect-ratio: 4 / 5;
+    z-index: 0;
+    overflow: hidden;
+    will-change: transform;
+  }
+
+  .portrait-wrap img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .bio {
+    max-width: 68ch;
+    font-size: clamp(16px, 1.8vw, 30px);
+    line-height: 1.3;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin: 20px 0 0;
+  }
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 200px;
+    font-size: clamp(12px, 1vw, 16px);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  footer nav {
+    display: flex;
+    gap: clamp(16px, 2vw, 32px);
+  }
+
+  footer a {
+    color: var(--fg);
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 850px) {
+    .bio { margin-top: 50px; }
+  }
+
+  @media (max-width: 700px) {
+    body { padding-top: 2vw; }
+    .name-line:first-child { margin-bottom: 0; }
+    .portrait-wrap { position: static; transform: none; width: 100%; aspect-ratio: 4/5; margin: 10px 0; }
+    footer { flex-direction: column; align-items: flex-start; gap: 12px; padding-top: 100px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1 class="name-line">Jordan</h1>
+    <div class="line-wrap">
+      <div class="portrait-wrap">
+        <img src="images/portrait.png" alt="Jordan Bourzig">
+      </div>
+      <h1 class="name-line">Bourzig</h1>
+    </div>
+  </div>
+
+  <p class="bio">
+    I&rsquo;m Jordan, a plant-centric chef and nutritional therapist with 15+ years of experience bringing healing,
+    balance, and vitality to the table. By combining seasonal culinary craft with naturopathic principles, I build
+    tailored therapeutic plans and intuitive food concepts and workshops that help people thrive.
+    Alongside my private client practice, I collaborate with ProVeg International to advocate for plant-based
+    nutrition in the public sector, helping schools and hospitals increase access to healthy, sustainable meals.
+    Interested in working together on clinical nutrition, culinary design, or public health initiatives? Let&rsquo;s connect.
+  </p>
+
+  <footer>
+    <nav>
+      <a href="https://www.instagram.com/nutritiousbourz/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.linkedin.com/in/jordan-bourzig-946b72197" target="_blank" rel="noopener">Linkedin</a>
+      <a href="mailto:jordanbourzig2.0@gmail.com">Mail</a>
+      <a href="tel:+447397535359">Telephone</a>
+    </nav>
+    <span>&copy;Jordan Bourzig 2026</span>
+  </footer>
+
+  <script>
+    (function () {
+      var canvas = document.createElement('canvas');
+      var ctx = canvas.getContext('2d');
+
+      // Measures actual glyph ink (not the advance box) at a 100px reference
+      // size, so both the left AND right edges can be lined up exactly,
+      // regardless of each word's own left/right side bearing.
+      function fit(el) {
+        var container = el.parentElement;
+        var targetWidth = container.clientWidth * 1;
+        ctx.font = '500 100px Poppins, sans-serif';
+        ctx.letterSpacing = '-1px'; // matches the -0.01em CSS letter-spacing at 100px
+        var metrics = ctx.measureText(el.textContent);
+        var leftInkX = -metrics.actualBoundingBoxLeft;
+        var rightInkX = metrics.actualBoundingBoxRight;
+        var inkWidth = rightInkX - leftInkX;
+        if (inkWidth > 0) {
+          var fontSize = (100 * targetWidth) / inkWidth;
+          var marginLeftPx = -(leftInkX * fontSize) / 100;
+          el.style.fontSize = fontSize + 'px';
+          el.style.marginLeft = marginLeftPx + 'px';
+        }
+      }
+
+      function fitAll() {
+        document.querySelectorAll('.name-line').forEach(fit);
+      }
+
+      fitAll();
+      window.addEventListener('resize', fitAll);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(fitAll);
+      }
+
+      // Subtle desktop-only parallax: the name lags behind the scroll
+      // slightly, the portrait lags a bit more, for a touch of depth.
+      var hero = document.querySelector('.hero');
+      var portraitWrap = document.querySelector('.portrait-wrap');
+      var ticking = false;
+
+      function applyParallax() {
+        if (window.innerWidth <= 700) {
+          hero.style.setProperty('--parallax-name', '0px');
+          portraitWrap.style.setProperty('--parallax-img', '0px');
+          return;
+        }
+        var y = window.scrollY;
+        hero.style.setProperty('--parallax-name', (y * 0) + 'px');
+        portraitWrap.style.setProperty('--parallax-img', (y *-0.08) + 'px');
+      }
+
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          requestAnimationFrame(function () {
+            applyParallax();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      window.addEventListener('resize', applyParallax);
+      applyParallax();
+    })();
+  </script>
+
+</body>
+</html>
